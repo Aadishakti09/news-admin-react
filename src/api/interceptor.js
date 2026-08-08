@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: "https://news-node-backend.onrender.com/",  //http://localhost:5000/
     withCredentials: true
 });
 
