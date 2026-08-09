@@ -24,7 +24,7 @@ const Users = () => {
 
   useEffect(() => {
     fetchList();
-  }, [page]);
+  }, [page, fetchList]);
 
   // STATUS TOGGLE
   const handleStatusToggle = async (user) => {

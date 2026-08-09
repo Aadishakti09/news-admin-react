@@ -21,7 +21,7 @@ const BlogDetail = () => {
 
   useEffect(() => {
     fetchBlog();
-  }, [id]);
+  }, [id, fetchBlog]);
 
   const getStatusBadge = (status) => {
     const map = {

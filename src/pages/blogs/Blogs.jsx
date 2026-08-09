@@ -33,7 +33,7 @@ const Blogs = () => {
 
   useEffect(() => {
     fetchBlogs();
-  }, [page]);
+  }, [page, fetchBlogs]);
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this blog?")) return;
