@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import api from "../../api/interceptor";
 
 const BlogDetail = () => {
-  const { id } = useParams();
 
   const [blog, setBlogs] = useState(null);
   const [loading, setLoading] = useState(true);

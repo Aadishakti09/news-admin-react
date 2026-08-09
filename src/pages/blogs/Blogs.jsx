@@ -10,16 +10,6 @@ const Blogs = () => {
 
   const limit = 10;
 
-  const fetchBlogs = async () => {
-    try {
-      const res = await api.get(`blog?page=${page}&limit=${limit}`);
-      setBlogs(res.data.data);
-      setTotalPages(res.data.pagination.totalPages);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   useEffect(() => {
     setRole(localStorage.getItem("role") || "");
 
@@ -32,8 +22,21 @@ const Blogs = () => {
   }, []);
 
   useEffect(() => {
-    fetchBlogs();
-  }, [page, fetchBlogs]);
+  const fetchBlogs = async () => {
+    try {
+      const res = await api.get(
+        `blog?page=${page}&limit=${limit}`
+      );
+
+      setBlogs(res.data.data);
+      setTotalPages(res.data.pagination.totalPages);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  fetchBlogs();
+}, [page]);
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this blog?")) return;
