@@ -5,7 +5,7 @@ import api from "../../api/interceptor";
 const BlogDetail = () => {
   const { id } = useParams();
 
-  const [blog, setBlog] = useState(null);
+  const [blog, setBlogs] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
