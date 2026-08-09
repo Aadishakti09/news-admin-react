@@ -8,6 +8,7 @@ const Users = () => {
 
   const limit = 10;
 
+  useEffect(() => {
   const fetchList = async () => {
     try {
       const res = await api.get(
@@ -16,15 +17,13 @@ const Users = () => {
 
       setList(res.data.data);
       setTotalPages(res.data.pagination.totalPages);
-
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  useEffect(() => {
-    fetchList();
-  }, [page, fetchList]);
+  fetchList();
+}, [page, limit]);
 
   // STATUS TOGGLE
   const handleStatusToggle = async (user) => {

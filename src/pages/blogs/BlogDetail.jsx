@@ -8,10 +8,12 @@ const BlogDetail = () => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchBlog = async () => {
+  useEffect(() => {
+  const fetchBlogs = async () => {
     try {
-      const res = await api.get(`blog/${id}`);
-      setBlog(res.data.data);
+      const res = await api.get("blogs");
+
+      setBlogs(res.data.data);
     } catch (err) {
       console.log(err.message);
     } finally {
@@ -19,9 +21,8 @@ const BlogDetail = () => {
     }
   };
 
-  useEffect(() => {
-    fetchBlog();
-  }, [id, fetchBlog]);
+  fetchBlogs();
+}, []);
 
   const getStatusBadge = (status) => {
     const map = {
